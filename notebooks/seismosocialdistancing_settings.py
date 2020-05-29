@@ -12,7 +12,7 @@ start = UTCDateTime("2020-01-15")
 
 # Leaving UTCDateTime() empty means "now":
 # and this means 24 hours ago: UTCDateTime() - 24*3600
-end = UTCDateTime("2020-02-15")
+end = UTCDateTime() - 24*3600
 
 
 # This is the time it takes to be sure the data that we download is a complete record that
@@ -21,12 +21,12 @@ safety_window = pd.Timedelta('2 days')
 
 
 network = "S1"
-station = "AUKSC"              #,sydney,brisbane jump, adelaide," # Urban stations
+station = "AUNRC"              #,sydney,brisbane jump, adelaide," # Urban stations
 location = "*"
-channel = "BHZ"
-dataset = "Australia_AUKSC"
-time_zone = "Australia/Melbourne"
-sitedesc = "Keysborough Secondary College, Victoria"
+channel = "HHZ"
+dataset = "Australia_AUNRC"
+time_zone = "Australia/Brisbane"
+sitedesc = "Rockhampton, Queensland"
 
 data_provider = "IRIS"
 logo = None # 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Logo_SED_2014.png/220px-Logo_SED_2014.png'
