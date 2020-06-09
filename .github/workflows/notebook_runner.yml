@@ -42,7 +42,8 @@ jobs:
         ./notebook_runner.sh &> output_log.txt
         ls -l workdir  # add this to the logs for debugging / monitoring 
         
-    - name: Upload the log files (for now just an artefact)
+    - name: Upload the log files (for now just an artifact)
+      if: always()  # upload any output if above fails
       continue-on-error: true  
       uses: actions/upload-artifact@v1
       with:
