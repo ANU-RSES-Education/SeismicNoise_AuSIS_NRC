@@ -1,33 +1,4 @@
 
-Skip to content
-Pull requests
-Issues
-Marketplace
-Explore
-@lmoresi
-ANU-RSES-Education /
-SeismicNoise_AuSIS
-Template
-
-1
-0
-
-    0
-
-Code
-Issues 0
-Pull requests 0
-Actions
-Projects 0
-Wiki
-Security 0
-Insights
-
-    Settings
-
-SeismicNoise_AuSIS/.github/workflows/notebook_runner.yml
-@lmoresi lmoresi Try log file once more d916dac 4 hours ago
-74 lines (58 sloc) 2.06 KB
 name: run notebooks
 
 # push or on schedule
@@ -98,21 +69,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
-    
-
-      
-
-    © 2020 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
 
