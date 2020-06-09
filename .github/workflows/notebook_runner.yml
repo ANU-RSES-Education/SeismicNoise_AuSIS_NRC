@@ -1,3 +1,33 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@lmoresi
+ANU-RSES-Education /
+SeismicNoise_AuSIS
+Template
+
+1
+0
+
+    0
+
+Code
+Issues 0
+Pull requests 0
+Actions
+Projects 0
+Wiki
+Security 0
+Insights
+
+    Settings
+
+SeismicNoise_AuSIS/.github/workflows/notebook_runner.yml
+@lmoresi lmoresi Try log file once more d916dac 4 hours ago
+74 lines (58 sloc) 2.06 KB
 name: run notebooks
 
 # push or on schedule
@@ -20,26 +50,29 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
   
-    - uses: goanpeca/setup-miniconda@v1
+    - uses: goanpeca/setup-miniconda@v1.5.0
       with:
         auto-update-conda: true
         python-version: 3.7
+        activate-environment: ausis
+        environment-file: environment.yml
+        auto-activate-base: false
 
     - name: Install dependencies with conda # (the shell line is needed for conda paths etc)
       shell: bash -l {0}
       run: |
-        conda env update -n base --file environment.yml
-        conda activate base 
         pip install tables
-
+        conda info 
+        conda list
+        
     - name: Run the code
       shell: bash -l {0}
       run: |
-        conda activate base 
         ./notebook_runner.sh &> output_log.txt
         ls -l workdir  # add this to the logs for debugging / monitoring 
-
+        
     - name: Upload the log files (for now just an artefact)
+      continue-on-error: true  
       uses: actions/upload-artifact@v1
       with:
         name: logs
@@ -60,7 +93,6 @@ jobs:
         git add data/*npz 
         git add results/*.csv
         git commit -m "Updated results: `date` " 
-
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
@@ -69,3 +101,18 @@ jobs:
     
 
       
+
+    © 2020 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
